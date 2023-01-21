@@ -56,6 +56,10 @@ h2 {
     color: #84eec1;
 }
 
+button {
+    cursor: pointer;
+}
+
 @media (min-width: 576px) {
     .container {
         width: 540px;
