@@ -15,6 +15,7 @@
             cols="30"
             rows="10"
             placeholder="Digite o pensamento"
+            [(ngModel)]="pensamento.conteudo"
         ></textarea>
 
         <label for="autoria">Autoria</label>
@@ -26,9 +27,10 @@
             cols="30"
             rows="10"
             placeholder="Digite o autoria"
+            [(ngModel)]="pensamento.autoria"
         />
 
-        <label for="modelo">Selecione o modelo do card</label>
+        <label>Selecione o modelo do card</label>
         <div class="container-radio">
             <div class="radio-modelo">
                 <label for="modelo1">
@@ -50,8 +52,10 @@
                         src="../../../../assets/imagens/modelo1.png"
                         alt="Aspas azuis"
                     />
-                    <p class="conteudo">Aqui vai o conteúdo</p>
-                    <p class="autoria"><strong>Aqui vai a autoria</strong></p>
+                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="autoria">
+                        <strong>{{ pensamento.autoria }}</strong>
+                    </p>
                 </div>
             </div>
 
@@ -75,8 +79,10 @@
                         src="../../../../assets/imagens/modelo2.png"
                         alt="Aspas azul claro"
                     />
-                    <p class="conteudo">Aqui vai o conteúdo</p>
-                    <p class="autoria"><strong>Aqui vai a autoria</strong></p>
+                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="autoria">
+                        <strong>{{ pensamento.autoria }}</strong>
+                    </p>
                 </div>
             </div>
 
@@ -100,15 +106,19 @@
                         src="../../../../assets/imagens/modelo3.png"
                         alt="Aspas verdes"
                     />
-                    <p class="conteudo">Aqui vai o conteúdo</p>
-                    <p class="autoria"><strong>Aqui vai a autoria</strong></p>
+                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="autoria">
+                        <strong>{{ pensamento.autoria }}</strong>
+                    </p>
                 </div>
             </div>
         </div>
 
         <div class="acoes">
-            <button class="botao">Salvar</button>
-            <button class="botao">Cancelar</button>
+            <button class="botao" (click)="criarPensamento()">Salvar</button>
+            <button class="botao" (click)="cancelarPensamento()">
+                Cancelar
+            </button>
         </div>
     </form>
 </section>
