@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-interface Pensamento {
-    id: string;
-    conteudo: string;
-    autoria: string;
-    modelo: string;
-}
+import { Pensamento } from "src/app/interfaces/pensamento";
 
 @Component({
     selector: "app-criar-pensamento",
