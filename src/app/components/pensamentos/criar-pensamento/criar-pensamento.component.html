@@ -1,0 +1,124 @@
+<section class="container criar-pensamentos ff-inter">
+    <header class="header">
+        <h2>
+            Adicione um <br />
+            pensamento novo:
+        </h2>
+    </header>
+
+    <form>
+        <label for="pensamento">Pensamento</label>
+        <textarea
+            name="pensamento"
+            class="input"
+            id="pensamento"
+            cols="30"
+            rows="10"
+            placeholder="Digite o pensamento"
+            [(ngModel)]="pensamento.conteudo"
+        ></textarea>
+
+        <label for="autoria">Autoria</label>
+        <input
+            type="text"
+            name="autoria"
+            class="input"
+            id="autoria"
+            cols="30"
+            rows="10"
+            placeholder="Digite o autoria"
+            [(ngModel)]="pensamento.autoria"
+        />
+
+        <label>Selecione o modelo do card</label>
+        <div class="container-radio">
+            <div class="radio-modelo">
+                <label for="modelo1">
+                    <input
+                        type="radio"
+                        name="modelo-card"
+                        id="modelo1"
+                        value="modelo1"
+                    />
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Modelo 1</span>
+                </label>
+
+                Prévia:
+                <div class="modelo modelo1 ff-roboto-mono">
+                    <img
+                        src="../../../../assets/imagens/modelo1.png"
+                        alt="Aspas azuis"
+                    />
+                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="autoria">
+                        <strong>{{ pensamento.autoria }}</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="radio-modelo">
+                <label for="modelo2">
+                    <input
+                        type="radio"
+                        name="modelo-card"
+                        id="modelo2"
+                        value="modelo2"
+                    />
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Modelo 2</span>
+                </label>
+
+                Prévia:
+                <div class="modelo modelo2 ff-roboto-mono">
+                    <img
+                        src="../../../../assets/imagens/modelo2.png"
+                        alt="Aspas azul claro"
+                    />
+                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="autoria">
+                        <strong>{{ pensamento.autoria }}</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="radio-modelo">
+                <label for="modelo3">
+                    <input
+                        type="radio"
+                        name="modelo-card"
+                        id="modelo3"
+                        value="modelo3"
+                    />
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Modelo 3</span>
+                </label>
+
+                Prévia:
+                <div class="modelo modelo3 ff-roboto-mono">
+                    <img
+                        src="../../../../assets/imagens/modelo3.png"
+                        alt="Aspas verdes"
+                    />
+                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="autoria">
+                        <strong>{{ pensamento.autoria }}</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="acoes">
+            <button class="botao" (click)="criarPensamento()">Salvar</button>
+            <button class="botao" (click)="cancelarPensamento()">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</section>
