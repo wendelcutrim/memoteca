@@ -1,0 +1,16 @@
+{
+  "pensamentos": [
+    {
+      "id": 2,
+      "conteudo": "Estudando Angular, já tornou meu framework favorito 😍",
+      "autoria": "Wendel",
+      "modelo": "modelo2"
+    },
+    {
+      "id": 3,
+      "conteudo": "Angular é melhor que React",
+      "autoria": "Wendel",
+      "modelo": "modelo3"
+    }
+  ]
+}
