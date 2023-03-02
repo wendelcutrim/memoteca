@@ -6,28 +6,27 @@
         </h2>
     </header>
 
-    <form>
+    <form [formGroup]="formulario">
         <label for="pensamento">Pensamento</label>
         <textarea
-            name="pensamento"
+            formControlName="conteudo"
             class="input"
             id="pensamento"
             cols="30"
             rows="10"
             placeholder="Digite o pensamento"
-            [(ngModel)]="pensamento.conteudo"
-        ></textarea>
+        >
+        </textarea>
 
         <label for="autoria">Autoria</label>
         <input
             type="text"
-            name="autoria"
+            formControlName="autoria"
             class="input"
             id="autoria"
             cols="30"
             rows="10"
             placeholder="Digite o autoria"
-            [(ngModel)]="pensamento.autoria"
         />
 
         <label>Selecione o modelo do card</label>
@@ -36,7 +35,7 @@
                 <label for="modelo1">
                     <input
                         type="radio"
-                        name="modelo-card"
+                        formControlName="modelo"
                         id="modelo1"
                         value="modelo1"
                     />
@@ -52,9 +51,11 @@
                         src="../../../../assets/imagens/modelo1.png"
                         alt="Aspas azuis"
                     />
-                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="conteudo">
+                        {{ formulario.get("conteudo")?.value }}
+                    </p>
                     <p class="autoria">
-                        <strong>{{ pensamento.autoria }}</strong>
+                        <strong>{{ formulario.get("autoria")?.value }}</strong>
                     </p>
                 </div>
             </div>
@@ -63,7 +64,7 @@
                 <label for="modelo2">
                     <input
                         type="radio"
-                        name="modelo-card"
+                        formControlName="modelo"
                         id="modelo2"
                         value="modelo2"
                     />
@@ -79,9 +80,11 @@
                         src="../../../../assets/imagens/modelo2.png"
                         alt="Aspas azul claro"
                     />
-                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="conteudo">
+                        {{ formulario.get("conteudo")?.value }}
+                    </p>
                     <p class="autoria">
-                        <strong>{{ pensamento.autoria }}</strong>
+                        <strong>{{ formulario.get("autoria")?.value }}</strong>
                     </p>
                 </div>
             </div>
@@ -90,7 +93,7 @@
                 <label for="modelo3">
                     <input
                         type="radio"
-                        name="modelo-card"
+                        formControlName="modelo"
                         id="modelo3"
                         value="modelo3"
                     />
@@ -106,9 +109,11 @@
                         src="../../../../assets/imagens/modelo3.png"
                         alt="Aspas verdes"
                     />
-                    <p class="conteudo">{{ pensamento.conteudo }}</p>
+                    <p class="conteudo">
+                        {{ formulario.get("conteudo")?.value }}
+                    </p>
                     <p class="autoria">
-                        <strong>{{ pensamento.autoria }}</strong>
+                        <strong>{{ formulario.get("autoria")?.value }}</strong>
                     </p>
                 </div>
             </div>
