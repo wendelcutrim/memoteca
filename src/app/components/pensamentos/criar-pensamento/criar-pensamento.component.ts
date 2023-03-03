@@ -1,10 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { PensamentoService } from "src/app/services/pensamento.service";
-import { Pensamento } from "src/app/interfaces/pensamento";
 import { Router } from "@angular/router";
-import { FormGroup } from "@angular/forms";
-import { FormBuilder } from "@angular/forms";
-
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 @Component({
     selector: "app-criar-pensamento",
     templateUrl: "./criar-pensamento.component.html",
@@ -21,19 +18,46 @@ export class CriarPensamentoComponent {
 
     ngOnInit(): void {
         this.formulario = this.formBuilder.group({
-            conteudo: [""],
-            autoria: [""],
+            conteudo: [
+                "",
+                Validators.compose([
+                    Validators.required,
+                    Validators.pattern(/(.|\s)*\S(.|\s)*/),
+                ]),
+            ],
+            autoria: [
+                "",
+                Validators.compose([
+                    Validators.required,
+                    Validators.minLength(3),
+                ]),
+            ],
             modelo: [""],
         });
     }
 
-    criarPensamento() {
-        this.pensamentoService.criar(this.formulario.value).subscribe(() => {
-            this.router.navigate(["/"]);
-        });
+    criarPensamento(): void {
+        console.log(this.formulario.status);
+        console.log(this.formulario.get("autoria")?.errors);
+
+        if (this.formulario.valid) {
+            this.pensamentoService
+                .criar(this.formulario.value)
+                .subscribe(() => {
+                    this.router.navigate(["/"]);
+                });
+        }
     }
 
-    cancelarPensamento() {
+    cancelarPensamento(): void {
         this.router.navigate(["/"]);
+    }
+
+    habilitarBotao(): string {
+        if (this.formulario.valid) {
+            return "botao";
+        } else {
+            return "botao__desabilitado";
+        }
     }
 }

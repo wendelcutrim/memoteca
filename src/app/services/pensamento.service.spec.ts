@@ -1,16 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import { Observable } from "rxjs";
+import { TestBed } from "@angular/core/testing";
 
-import { PensamentoService } from './pensamento.service';
+import { PensamentoService } from "./pensamento.service";
 
-describe('PensamentoService', () => {
-  let service: PensamentoService;
+import { Pensamento } from "../interfaces/pensamento";
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PensamentoService);
-  });
+describe("PensamentoService", () => {
+    let service: PensamentoService;
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(PensamentoService);
+    });
+
+    it("should be created", () => {
+        expect(service).toBeTruthy();
+    });
 });
