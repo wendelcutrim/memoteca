@@ -12,10 +12,20 @@ export class PensamentoService {
 
     constructor(private http: HttpClient) {}
 
-    listar(page: number, limit?: number): Observable<Pensamento[]> {
+    listar(
+        page: number,
+        limit?: number,
+        filtro?: string | null,
+    ): Observable<Pensamento[]> {
         let params = new HttpParams()
             .set("_page", page)
             .set("_limit", limit ? limit : (limit = 6));
+
+        if (typeof filtro === "string" && filtro.trim().length > 2) {
+            params = params.set("q", filtro);
+        }
+
+        console.log(params);
 
         return this.http.get<Pensamento[]>(`${this.API_BASE_URL}/pensamentos`, {
             params,
