@@ -18,21 +18,10 @@ export class CriarPensamentoComponent {
 
     ngOnInit(): void {
         this.formulario = this.formBuilder.group({
-            conteudo: [
-                "",
-                Validators.compose([
-                    Validators.required,
-                    Validators.pattern(/(.|\s)*\S(.|\s)*/),
-                ]),
-            ],
-            autoria: [
-                "",
-                Validators.compose([
-                    Validators.required,
-                    Validators.minLength(3),
-                ]),
-            ],
+            conteudo: ["", Validators.compose([Validators.required, Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
+            autoria: ["", Validators.compose([Validators.required, Validators.minLength(3)])],
             modelo: [""],
+            favorito: [false],
         });
     }
 
@@ -41,11 +30,9 @@ export class CriarPensamentoComponent {
         console.log(this.formulario.get("autoria")?.errors);
 
         if (this.formulario.valid) {
-            this.pensamentoService
-                .criar(this.formulario.value)
-                .subscribe(() => {
-                    this.router.navigate(["/"]);
-                });
+            this.pensamentoService.criar(this.formulario.value).subscribe(() => {
+                this.router.navigate(["/"]);
+            });
         }
     }
 

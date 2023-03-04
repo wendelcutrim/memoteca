@@ -12,14 +12,8 @@ export class PensamentoService {
 
     constructor(private http: HttpClient) {}
 
-    listar(
-        page: number,
-        limit?: number,
-        filtro?: string | null,
-    ): Observable<Pensamento[]> {
-        let params = new HttpParams()
-            .set("_page", page)
-            .set("_limit", limit ? limit : (limit = 6));
+    listar(page: number, limit?: number, filtro?: string | null): Observable<Pensamento[]> {
+        let params = new HttpParams().set("_page", page).set("_limit", limit ? limit : (limit = 6));
 
         if (typeof filtro === "string" && filtro.trim().length > 2) {
             params = params.set("q", filtro);
@@ -38,10 +32,7 @@ export class PensamentoService {
     }
 
     criar(pensamento: Pensamento): Observable<Pensamento> {
-        return this.http.post<Pensamento>(
-            `${this.API_BASE_URL}/pensamentos`,
-            pensamento,
-        );
+        return this.http.post<Pensamento>(`${this.API_BASE_URL}/pensamentos`, pensamento);
     }
 
     editar(pensamento: Pensamento): Observable<Pensamento> {
