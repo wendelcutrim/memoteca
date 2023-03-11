@@ -29,27 +29,17 @@ export class EditarPensamentoComponent implements OnInit, OnChanges {
             (pensamento: Pensamento) =>
                 (this.formulario = this.formBuilder.group({
                     id: [pensamento.id],
-                    conteudo: [
-                        pensamento.conteudo,
-                        Validators.compose([Validators.required]),
-                    ],
-                    autoria: [
-                        pensamento.autoria,
-                        Validators.compose([
-                            Validators.required,
-                            Validators.minLength(3),
-                        ]),
-                    ],
+                    conteudo: [pensamento.conteudo, Validators.compose([Validators.required])],
+                    autoria: [pensamento.autoria, Validators.compose([Validators.required, Validators.minLength(3)])],
                     modelo: [pensamento.modelo],
+                    favorito: [false],
                 })),
         );
         console.log(this.formulario);
     }
 
     editarPensamento(): void {
-        this.pensamentoService
-            .editar(this.formulario.value)
-            .subscribe(() => this.router.navigate(["/listar"]));
+        this.pensamentoService.editar(this.formulario.value).subscribe(() => this.router.navigate(["/listar"]));
     }
 
     cancelarPensamento(): void {

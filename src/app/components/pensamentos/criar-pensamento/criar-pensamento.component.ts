@@ -1,3 +1,4 @@
+import { Title } from "@angular/platform-browser";
 import { Component } from "@angular/core";
 import { PensamentoService } from "src/app/services/pensamento.service";
 import { Router } from "@angular/router";
@@ -14,25 +15,16 @@ export class CriarPensamentoComponent {
         private pensamentoService: PensamentoService,
         private router: Router,
         private formBuilder: FormBuilder,
+        private titleService: Title,
     ) {}
 
     ngOnInit(): void {
+        this.titleService.setTitle("Criar pensamento");
         this.formulario = this.formBuilder.group({
-            conteudo: [
-                "",
-                Validators.compose([
-                    Validators.required,
-                    Validators.pattern(/(.|\s)*\S(.|\s)*/),
-                ]),
-            ],
-            autoria: [
-                "",
-                Validators.compose([
-                    Validators.required,
-                    Validators.minLength(3),
-                ]),
-            ],
+            conteudo: ["", Validators.compose([Validators.required, Validators.pattern(/(.|\s)*\S(.|\s)*/)])],
+            autoria: ["", Validators.compose([Validators.required, Validators.minLength(3)])],
             modelo: [""],
+            favorito: [false],
         });
     }
 
@@ -41,11 +33,9 @@ export class CriarPensamentoComponent {
         console.log(this.formulario.get("autoria")?.errors);
 
         if (this.formulario.valid) {
-            this.pensamentoService
-                .criar(this.formulario.value)
-                .subscribe(() => {
-                    this.router.navigate(["/"]);
-                });
+            this.pensamentoService.criar(this.formulario.value).subscribe(() => {
+                this.router.navigate(["/"]);
+            });
         }
     }
 
