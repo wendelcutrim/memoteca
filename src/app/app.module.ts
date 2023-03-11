@@ -12,7 +12,7 @@ import { PensamentoComponent } from "./components/pensamentos/pensamento/pensame
 import { HttpClientModule } from "@angular/common/http";
 import { ExcluirPensamentoComponent } from "./components/pensamentos/excluir-pensamento/excluir-pensamento.component";
 import { EditarPensamentoComponent } from "./components/pensamentos/editar-pensamento/editar-pensamento.component";
-import { BotaoCarregarMaisComponent } from './components/pensamentos/listar-pensamento/botao-carregar-mais/botao-carregar-mais.component';
+import { BotaoCarregarMaisComponent } from "./components/pensamentos/listar-pensamento/botao-carregar-mais/botao-carregar-mais.component";
 
 @NgModule({
     declarations: [
@@ -26,13 +26,7 @@ import { BotaoCarregarMaisComponent } from './components/pensamentos/listar-pens
         EditarPensamentoComponent,
         BotaoCarregarMaisComponent,
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-    ],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })

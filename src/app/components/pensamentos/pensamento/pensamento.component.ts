@@ -10,6 +10,8 @@ import { PensamentoService } from "src/app/services/pensamento.service";
 export class PensamentoComponent {
     @Input() pensamento!: Pensamento;
 
+    @Input() listaFavoritos: Pensamento[] = [];
+
     constructor(private pensamentoService: PensamentoService) {}
 
     larguraPensamento(): string {
@@ -18,6 +20,8 @@ export class PensamentoComponent {
     }
 
     mudarIconeFavorito() {
-        return this.pensamentoService.mudarFavorito(this.pensamento).subscribe();
+        return this.pensamentoService.mudarFavorito(this.pensamento).subscribe(() => {
+            this.listaFavoritos.splice(this.listaFavoritos.indexOf(this.pensamento));
+        });
     }
 }

@@ -11,13 +11,13 @@
       "id": 4,
       "conteudo": "Vc faz TI? Conserta meu celular!",
       "autoria": "Grupo da família",
-      "favorito": false,
+      "favorito": true,
       "modelo": "modelo1"
     },
     {
       "conteudo": "Já tentou reiniciar o roteador?",
       "autoria": "Pessoa da operadora",
-      "favorito": false,
+      "favorito": true,
       "modelo": "modelo3",
       "id": 5
     },
@@ -74,13 +74,13 @@
       "id": 17,
       "conteudo": "Que a força esteja com você!",
       "autoria": "Mestre Yoda",
-      "favorito": false,
+      "favorito": true,
       "modelo": "modelo1"
     },
     {
       "conteudo": "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Diuretics paradis num copo é motivis de denguis. Atirei o pau no gatis, per gatis num morreus. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Sapien in monti palavris qui num significa nadis i pareci latim.",
       "autoria": "Mussum",
-      "favorito": true,
+      "favorito": false,
       "modelo": "modelo3",
       "id": 18
     },
