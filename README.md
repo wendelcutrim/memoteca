@@ -1,5 +1,27 @@
 # Memoteca
 
+## Backend server:
+
+Checkout to backend directory
+
+```bash
+cd backend
+```
+
+Install all the dependencies
+
+```bash
+npm i
+```
+
+Run the server
+
+```bash
+npm start
+```
+
+## Frotnend
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
 ## Development server
